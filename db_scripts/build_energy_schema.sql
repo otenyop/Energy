@@ -14,4 +14,5 @@ connect energy_adf/energy_adf
 @@create_functions
 @@create_packages
 @@create_triggers
+@@data/fnd_currencies
 commit;
