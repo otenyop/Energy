@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.8.41"
+  InheritPersonalization="merge"
+  ComponentClass="ke.energy.common.baseclasses.ApplicationModuleImpl"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="cmCurrenciesVO1"
+    ViewObjectName="ke.energy.model.component.vo.cmCurrenciesVO"/>
+</AppModule>

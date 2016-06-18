@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-template id="CRUD-Template">
+    <default-activity>ObjectTableView</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="ObjectTableView"></view>
+    <method-call id="createInsert">
+      <outcome>
+        <fixed-outcome>createInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="setCurrentRowWithKey">
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Rollback">
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RemoveRowWithKey">
+      <outcome>
+        <fixed-outcome>removeRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Commit">
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="isApprovalRequired">
+      <case id="__14">
+        <outcome>Yes</outcome>
+      </case>
+      <case id="__15">
+        <outcome>No</outcome>
+      </case>
+      <default-outcome>No</default-outcome>
+    </router>
+    <view id="ObjectFormView"></view>
+    <method-call id="initiateApproval">
+      <outcome>
+        <fixed-outcome>openObjectTableView</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>ObjectTableView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>createObject</from-outcome>
+        <to-activity-id>createInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>viewObject</from-outcome>
+        <to-activity-id>setCurrentRowWithKey</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>updateObject</from-outcome>
+        <to-activity-id>setCurrentRowWithKey</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>deleteObject</from-outcome>
+        <to-activity-id>RemoveRowWithKey</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>createInsert</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>createInsert</from-outcome>
+        <to-activity-id>ObjectFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>setCurrentRowWithKey</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>setCurrentRowWithKey</from-outcome>
+        <to-activity-id>ObjectFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>ObjectFormView</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>isApprovalRequired</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>ObjectTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>isApprovalRequired</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>No</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>Yes</from-outcome>
+        <to-activity-id>initiateApproval</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>initiateApproval</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>openObjectTableView</from-outcome>
+        <to-activity-id>ObjectTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>Commit</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>Commit</from-outcome>
+        <to-activity-id>ObjectTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>RemoveRowWithKey</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>removeRowWithKey</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-template>
+</adfc-config>

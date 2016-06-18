@@ -13,3 +13,5 @@ FLUSH PRIVILEGES;
 USE energy;
 
 SOURCE create_tables.sql;
+SOURCE data/cm_currencies_data.sql
+COMMIT;
