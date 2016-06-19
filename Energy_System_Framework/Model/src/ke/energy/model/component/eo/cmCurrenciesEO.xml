@@ -9,7 +9,7 @@
   DBObjectType="table"
   DBObjectName="CM_CURRENCIES"
   AliasName="cmCurrenciesEO"
-  BindingStyle="JDBC"
+  BindingStyle="OracleName"
   RowClass="ke.energy.common.baseclasses.EntityImpl">
   <Attribute
     Name="CurrencyCode"
@@ -18,7 +18,7 @@
     ColumnName="CURRENCY_CODE"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR"
+    ColumnType="VARCHAR2"
     TableName="CM_CURRENCIES"
     PrimaryKey="true">
     <DesignTime>
@@ -32,7 +32,7 @@
     ColumnName="NAME"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR"
+    ColumnType="VARCHAR2"
     TableName="CM_CURRENCIES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="80"/>
@@ -44,7 +44,7 @@
     ColumnName="DESCRIPTION"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR"
+    ColumnType="VARCHAR2"
     TableName="CM_CURRENCIES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="240"/>
@@ -57,41 +57,37 @@
     ColumnName="ENABLED_FLAG"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR"
+    ColumnType="VARCHAR2"
     TableName="CM_CURRENCIES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="BasePrecision"
-    ColumnName="BASE_PRECISION"
-    SQLType="INTEGER"
+    Name="Precision"
+    Precision="1"
+    Scale="0"
+    ColumnName="PRECISION"
+    SQLType="NUMERIC"
     Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="CM_CURRENCIES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
+    ColumnType="NUMBER"
+    TableName="CM_CURRENCIES"/>
   <Attribute
     Name="ExtendedPrecision"
+    Precision="2"
+    Scale="0"
     ColumnName="EXTENDED_PRECISION"
-    SQLType="INTEGER"
+    SQLType="NUMERIC"
     Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="CM_CURRENCIES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
+    ColumnType="NUMBER"
+    TableName="CM_CURRENCIES"/>
   <Attribute
     Name="Symbol"
     Precision="12"
     ColumnName="SYMBOL"
     SQLType="VARCHAR"
     Type="java.lang.String"
-    ColumnType="VARCHAR"
+    ColumnType="VARCHAR2"
     TableName="CM_CURRENCIES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="12"/>
@@ -100,62 +96,68 @@
   <Attribute
     Name="StartDateActive"
     ColumnName="START_DATE_ACTIVE"
-    SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="DATETIME"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
     TableName="CM_CURRENCIES"/>
   <Attribute
     Name="EndDateActive"
     ColumnName="END_DATE_ACTIVE"
-    SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="DATETIME"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
     TableName="CM_CURRENCIES"/>
   <Attribute
     Name="CreationDate"
     IsNotNull="true"
     ColumnName="CREATION_DATE"
-    SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="DATETIME"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
     TableName="CM_CURRENCIES"/>
   <Attribute
     Name="CreatedBy"
     IsNotNull="true"
+    Precision="15"
+    Scale="0"
     ColumnName="CREATED_BY"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="CM_CURRENCIES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CM_CURRENCIES"/>
   <Attribute
     Name="LastUpdateDate"
     IsNotNull="true"
     ColumnName="LAST_UPDATE_DATE"
-    SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="DATETIME"
+    SQLType="DATE"
+    Type="java.sql.Date"
+    ColumnType="DATE"
     TableName="CM_CURRENCIES"/>
   <Attribute
     Name="LastUpdatedBy"
     IsNotNull="true"
+    Precision="15"
+    Scale="0"
     ColumnName="LAST_UPDATED_BY"
-    SQLType="INTEGER"
-    Type="java.lang.Integer"
-    ColumnType="INT"
-    TableName="CM_CURRENCIES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CM_CURRENCIES"/>
+  <Attribute
+    Name="LastUpdateLogin"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATE_LOGIN"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CM_CURRENCIES"/>
   <Key
-    Name="Primary1"
+    Name="CurrencyCodePk"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+      <Attr Name="_DBObjectName" Value="CURRENCY_CODE_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="ke.energy.model.component.eo.cmCurrenciesEO.CurrencyCode"/>

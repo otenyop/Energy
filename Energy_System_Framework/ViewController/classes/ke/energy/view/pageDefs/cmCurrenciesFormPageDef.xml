@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.8.41" id="cmCurrenciesFormPageDef"
+                Package="ke.energy.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="cmCurrenciesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="cmCurrenciesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="BasePrecision">
+      <AttrNames>
+        <Item Value="BasePrecision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="CurrencyCode">
+      <AttrNames>
+        <Item Value="CurrencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="EnabledFlag">
+      <AttrNames>
+        <Item Value="EnabledFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="EndDateActive">
+      <AttrNames>
+        <Item Value="EndDateActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="ExtendedPrecision">
+      <AttrNames>
+        <Item Value="ExtendedPrecision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="StartDateActive">
+      <AttrNames>
+        <Item Value="StartDateActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Symbol">
+      <AttrNames>
+        <Item Value="Symbol"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

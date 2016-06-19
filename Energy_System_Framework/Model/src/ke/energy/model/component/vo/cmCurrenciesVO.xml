@@ -9,42 +9,16 @@
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="JDBC"
+  BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
   RowClass="ke.energy.common.baseclasses.ViewRowImpl"
   ComponentClass="ke.energy.common.baseclasses.ViewObjectImpl"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full">
-  <Properties>
-    <SchemaBasedProperties>
-      <LABEL
-        ResId="ke.energy.model.component.vo.cmCurrenciesVO_LABEL"/>
-    </SchemaBasedProperties>
-  </Properties>
   <EntityUsage
     Name="cmCurrenciesEO"
     Entity="ke.energy.model.component.eo.cmCurrenciesEO"/>
-  <ViewAttribute
-    Name="BasePrecision"
-    PrecisionRule="true"
-    EntityAttrName="BasePrecision"
-    EntityUsage="cmCurrenciesEO"
-    AliasName="BASE_PRECISION"/>
-  <ViewAttribute
-    Name="CreatedBy"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreatedBy"
-    EntityUsage="cmCurrenciesEO"
-    AliasName="CREATED_BY"/>
-  <ViewAttribute
-    Name="CreationDate"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="CreationDate"
-    EntityUsage="cmCurrenciesEO"
-    AliasName="CREATION_DATE"/>
   <ViewAttribute
     Name="CurrencyCode"
     IsNotNull="true"
@@ -52,6 +26,13 @@
     EntityAttrName="CurrencyCode"
     EntityUsage="cmCurrenciesEO"
     AliasName="CURRENCY_CODE"/>
+  <ViewAttribute
+    Name="Name"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="NAME"/>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"
@@ -66,17 +47,49 @@
     EntityUsage="cmCurrenciesEO"
     AliasName="ENABLED_FLAG"/>
   <ViewAttribute
-    Name="EndDateActive"
+    Name="Precision"
     PrecisionRule="true"
-    EntityAttrName="EndDateActive"
+    EntityAttrName="Precision"
     EntityUsage="cmCurrenciesEO"
-    AliasName="END_DATE_ACTIVE"/>
+    AliasName="PRECISION"/>
   <ViewAttribute
     Name="ExtendedPrecision"
     PrecisionRule="true"
     EntityAttrName="ExtendedPrecision"
     EntityUsage="cmCurrenciesEO"
     AliasName="EXTENDED_PRECISION"/>
+  <ViewAttribute
+    Name="Symbol"
+    PrecisionRule="true"
+    EntityAttrName="Symbol"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="SYMBOL"/>
+  <ViewAttribute
+    Name="StartDateActive"
+    PrecisionRule="true"
+    EntityAttrName="StartDateActive"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="START_DATE_ACTIVE"/>
+  <ViewAttribute
+    Name="EndDateActive"
+    PrecisionRule="true"
+    EntityAttrName="EndDateActive"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="END_DATE_ACTIVE"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="cmCurrenciesEO"
+    AliasName="CREATED_BY"/>
   <ViewAttribute
     Name="LastUpdateDate"
     IsNotNull="true"
@@ -92,26 +105,10 @@
     EntityUsage="cmCurrenciesEO"
     AliasName="LAST_UPDATED_BY"/>
   <ViewAttribute
-    Name="Name"
+    Name="LastUpdateLogin"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="Name"
+    EntityAttrName="LastUpdateLogin"
     EntityUsage="cmCurrenciesEO"
-    AliasName="NAME"/>
-  <ViewAttribute
-    Name="StartDateActive"
-    PrecisionRule="true"
-    EntityAttrName="StartDateActive"
-    EntityUsage="cmCurrenciesEO"
-    AliasName="START_DATE_ACTIVE"/>
-  <ViewAttribute
-    Name="Symbol"
-    PrecisionRule="true"
-    EntityAttrName="Symbol"
-    EntityUsage="cmCurrenciesEO"
-    AliasName="SYMBOL"/>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="ke.energy.model.ModelBundle"/>
-  </ResourceBundle>
+    AliasName="LAST_UPDATE_LOGIN"/>
 </ViewObject>

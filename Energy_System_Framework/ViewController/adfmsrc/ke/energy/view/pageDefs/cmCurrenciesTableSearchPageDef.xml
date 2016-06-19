@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.8.41" id="cmCurrenciesTableSearchPageDef"
+                Package="ke.energy.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="searchCurrenciesVO" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchCurrenciesVO" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.dataProvider">
+      <NamedData NDName="pCurrencyCode" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

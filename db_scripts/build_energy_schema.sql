@@ -1,5 +1,3 @@
-
-
 @@create_user
 
 REM If this fails with ORA-01940 because energy_adf user is connected, issue the following as system:

@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="ke.energy.model.component.am.AppModule">
-      <AppModuleConfig name="AppModuleLocal" ApplicationName="ke.energy.model.component.am.AppModule" DeployPlatform="LOCAL" jbo.project="ke.energy.model.Model">
-         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+      <AppModuleConfig name="AppModuleLocal" ApplicationName="ke.energy.model.component.am.AppModule" DeployPlatform="LOCAL" jbo.project="ke.energy.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <Database jbo.locking.mode="optimistic" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
          <Security AppModuleJndiName="ke.energy.model.component.am.AppModule"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/energy_MySQL_connDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/energy_XE_LinuxDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
-      <AppModuleConfig name="AppModuleShared" ApplicationName="ke.energy.model.component.am.AppModule" DeployPlatform="LOCAL" jbo.project="ke.energy.model.Model">
-         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
-         <Database jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
+      <AppModuleConfig name="AppModuleShared" ApplicationName="ke.energy.model.component.am.AppModule" DeployPlatform="LOCAL" jbo.project="ke.energy.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Database jbo.locking.mode="optimistic" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.TypeMapEntries="Java" jbo.SQLBuilder="SQL92"/>
          <Security AppModuleJndiName="ke.energy.model.component.am.AppModule"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/energy_MySQL_connDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/energy_XE_LinuxDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

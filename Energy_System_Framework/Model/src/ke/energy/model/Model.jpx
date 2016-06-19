@@ -11,8 +11,7 @@
     <Attr Name="_DTExpressionTypeChecking" Value="true"/>
     <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
     <Attr Name="_jprName" Value="../../../../Model.jpr"/>
-    <Attr Name="_jbo.SQLBuilder" Value="SQL92"/>
-    <Attr Name="_NamedConnection" Value="energy_MySQL_conn"/>
+    <Attr Name="_NamedConnection" Value="energy_XE_Linux"/>
     <Attr Name="_useAnsiJoinSyntax" Value="true"/>
     <Attr Name="_appModuleNames0" Value="ke.energy.model.component.am.AppModule"/>
   </DesignTime>

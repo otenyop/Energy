@@ -140,7 +140,7 @@
       <property
          name="fromOutcome">viewObject</property>
       <property
-         name="sdm:polyPoints">R46,159.0,256.03516,317.97507,254.90234,L46</property>
+         name="sdm:polyPoints">R46,159.91635,256.03516,317.9749,254.90234,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -180,7 +180,7 @@
       <property
          name="fromOutcome">Rollback</property>
       <property
-         name="sdm:polyPoints">L50,496.0,62.535156,159.0,252.53516,R42</property>
+         name="sdm:polyPoints">L50,496.0,62.535156,159.0,249.03516,R38</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
