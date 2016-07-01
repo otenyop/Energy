@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" bottomHeight="643px">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl1" halign="center" valign="middle">
+        <af:spacer width="10" height="10" id="s5"/>
+        <af:button text="Cancel" id="b1" inlineStyle="width:100px;text-align:center;" action="cancel" immediate="true"/>
+        <af:spacer width="10" height="20" id="s8"/>
+        <af:button text="New" id="b8" inlineStyle="width:100px;text-align:center;" action="createInsertFromFormView" disabled="#{!backingBeanScope.CmCurrenciesAuthorization.createAllowed}" />
+        <af:spacer width="10" height="10" id="s3"/>
+        <af:button text="Save" disabled="#{!bindings.Commit.enabled}"
+                   id="b6" action="save" inlineStyle="width:100px;text-align:center;"/>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:button text="Save &amp; Exit" disabled="#{!bindings.Commit.enabled}"
+                   id="b2" action="saveAndExit" inlineStyle="width:100px;text-align:center;"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelGroupLayout id="pgl2">
+        <af:spacer width="10" height="20" id="s6"/>
+        <af:button text="Cancel" id="b4" inlineStyle="width:100px;text-align:center;" action="cancel" immediate="true"/>
+        <af:spacer width="10" height="20" id="s7"/>
+        <af:button text="New" id="b7" inlineStyle="width:100px;text-align:center;" action="createInsertFromFormView"
+                   disabled="#{!backingBeanScope.CmCurrenciesAuthorization.createAllowed}"/>
+        <af:spacer width="10" height="20" id="s1"/>
+        <af:button text="Save" disabled="#{!bindings.Commit.enabled}"
+                   id="b9" action="save" inlineStyle="width:100px;text-align:center;"/>
+        <af:spacer width="10" height="20" id="s2"/>
+        <af:button text="Save &amp; Exit" disabled="#{!bindings.Commit.enabled}"
+                   id="b5" action="saveAndExit" inlineStyle="width:100px;text-align:center;"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="center">
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.CurrencyCode.inputValue}" label="#{bindings.CurrencyCode.hints.label}"
+                      required="#{bindings.CurrencyCode.hints.mandatory}"
+                      columns="#{bindings.CurrencyCode.hints.displayWidth}"
+                      maximumLength="#{bindings.CurrencyCode.hints.precision}"
+                      shortDesc="#{bindings.CurrencyCode.hints.tooltip}" id="it1"
+                      disabled="#{!backingBeanScope.CmCurrenciesAuthorization.currencyCodeUpdateAllowed}"
+                      partialTriggers="it1 it2 it3 it4 it5 it6 it7 id1 id2 b9 b5 b6 b2" autoSubmit="true">
+          <f:validator binding="#{bindings.CurrencyCode.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                      
+                      required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
+                      maximumLength="#{bindings.Name.hints.precision}" shortDesc="#{bindings.Name.hints.tooltip}"
+                      id="it2" autoSubmit="true">
+          <f:validator binding="#{bindings.Name.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                      required="#{bindings.Description.hints.mandatory}"
+                      columns="#{bindings.Description.hints.displayWidth}"
+                      maximumLength="#{bindings.Description.hints.precision}"
+                      shortDesc="#{bindings.Description.hints.tooltip}" id="it3" autoSubmit="true">
+          <f:validator binding="#{bindings.Description.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Precision.inputValue}" label="#{bindings.Precision.hints.label}"
+                      required="#{bindings.Precision.hints.mandatory}"
+                      columns="#{bindings.Precision.hints.displayWidth}"
+                      maximumLength="#{bindings.Precision.hints.precision}"
+                      shortDesc="#{bindings.Precision.hints.tooltip}" id="it4" autoSubmit="true">
+          <f:validator binding="#{bindings.Precision.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Precision.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ExtendedPrecision.inputValue}" label="#{bindings.ExtendedPrecision.hints.label}"
+                      required="#{bindings.ExtendedPrecision.hints.mandatory}"
+                      columns="#{bindings.ExtendedPrecision.hints.displayWidth}"
+                      maximumLength="#{bindings.ExtendedPrecision.hints.precision}"
+                      shortDesc="#{bindings.ExtendedPrecision.hints.tooltip}" id="it5" autoSubmit="true">
+          <f:validator binding="#{bindings.ExtendedPrecision.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ExtendedPrecision.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.EnabledFlag.inputValue}" label="#{bindings.EnabledFlag.hints.label}"
+                      required="#{bindings.EnabledFlag.hints.mandatory}"
+                      columns="#{bindings.EnabledFlag.hints.displayWidth}"
+                      maximumLength="#{bindings.EnabledFlag.hints.precision}"
+                      shortDesc="#{bindings.EnabledFlag.hints.tooltip}" id="it6" autoSubmit="true">
+          <f:validator binding="#{bindings.EnabledFlag.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Symbol.inputValue}" label="#{bindings.Symbol.hints.label}"
+                      required="#{bindings.Symbol.hints.mandatory}" columns="#{bindings.Symbol.hints.displayWidth}"
+                      maximumLength="#{bindings.Symbol.hints.precision}" shortDesc="#{bindings.Symbol.hints.tooltip}"
+                      id="it7" autoSubmit="true">
+          <f:validator binding="#{bindings.Symbol.validator}"/>
+        </af:inputText>
+        <af:inputDate value="#{bindings.StartDateActive.inputValue}" label="#{bindings.StartDateActive.hints.label}"
+                      required="#{bindings.StartDateActive.hints.mandatory}"
+                      columns="#{bindings.StartDateActive.hints.displayWidth}"
+                      shortDesc="#{bindings.StartDateActive.hints.tooltip}" id="id1" autoSubmit="true">
+          <f:validator binding="#{bindings.StartDateActive.validator}"/>
+          <af:convertDateTime pattern="#{bindings.StartDateActive.format}"/>
+        </af:inputDate>
+        <af:inputDate value="#{bindings.EndDateActive.inputValue}" label="#{bindings.EndDateActive.hints.label}"
+                      required="#{bindings.EndDateActive.hints.mandatory}"
+                      columns="#{bindings.EndDateActive.hints.displayWidth}"
+                      shortDesc="#{bindings.EndDateActive.hints.tooltip}" id="id2" autoSubmit="true">
+          <f:validator binding="#{bindings.EndDateActive.validator}"/>
+          <af:convertDateTime pattern="#{bindings.EndDateActive.format}"/>
+        </af:inputDate>
+        <af:spacer width="10" height="30" id="s9"/>
+      </af:panelFormLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

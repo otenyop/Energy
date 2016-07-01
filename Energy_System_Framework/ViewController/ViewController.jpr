@@ -22,6 +22,7 @@
       <value n="oracle.ide.model.Project" v="12.2.1.0.0"/>
       <value n="oracle.ide.model.ResourcePathsMigrator" v="11.1.1.1.0"/>
       <value n="oracle.ideimpl.model.TechnologyScopeUpdateMigrator" v="11.1.2.0.0.6"/>
+      <value n="oracle.jbo.dt.jclient.migrator.JCProjectMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jbo.dt.jdevx.deployment.JbdProjectMigrator" v="11.1.2.0.0"/>
       <value n="oracle.jbo.dt.jdevx.ui.appnav.APAdfConfigMigrator" v="11.1.2.0.0"/>
       <value n="oracle.jbo.dt.jdevx.ui.appnav.APProjectMigrator" v="11.1.1.0.1.5"/>
@@ -63,9 +64,9 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
       <string v="oracle.ide.model.ResourcePaths/resourcesContentSet"/>
       <string v="oracle.jdeveloper.offlinedb.model.OfflineDBProjectSettings/offlineDBContentSet"/>
-      <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
+      <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
    </list>
    <value n="defaultPackage" v="ke.energy.view"/>
    <hash n="oracle.ide.model.DependencyConfiguration">
@@ -78,6 +79,30 @@
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
       </list>
+   </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+iconFolder_open.png"/>
+                  <string v="+iconFolder_open.png"/>
+               </list>
+               <list n="url-path">
+                  <url path="src/META-INF/resources/images/"/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+*"/>
+               </list>
+               <list n="url-path">
+                  <url path="."/>
+               </list>
+            </hash>
+         </list>
+         <list n="url-path"/>
+      </hash>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">

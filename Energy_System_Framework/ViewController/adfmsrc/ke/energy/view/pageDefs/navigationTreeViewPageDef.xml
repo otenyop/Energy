@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="navigationTreeViewPageDef"
+                Package="ke.energy.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="cmTreeMenuLevel2VO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="cmTreeMenuLevel2VO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="cmTreeMenuLevel2VO1Iterator" id="cmTreeMenuLevel2VO1">
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel2VO" Name="cmTreeMenuLevel2VO10">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel3VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel3VO" Name="cmTreeMenuLevel2VO11">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel4VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel4VO" Name="cmTreeMenuLevel2VO12">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel5VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel5VO" Name="cmTreeMenuLevel2VO13">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel6VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel6VO" Name="cmTreeMenuLevel2VO14">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel7VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel7VO" Name="cmTreeMenuLevel2VO15">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel8VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel8VO" Name="cmTreeMenuLevel2VO16">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="cmTreeMenuLevel9VO"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmTreeMenuLevel9VO" Name="cmTreeMenuLevel2VO17">
+        <AttrNames>
+          <Item Value="ChildLabel"/>
+          <Item Value="Type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

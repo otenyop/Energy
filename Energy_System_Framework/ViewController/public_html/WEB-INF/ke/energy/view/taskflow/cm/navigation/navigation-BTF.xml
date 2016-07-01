@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="navigation-BTF">
+    <default-activity>navigationTreeView</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="navigationTreeView">
+      <page>/WEB-INF/ke/energy/view/taskflow/cm/navigation/navigationTreeView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

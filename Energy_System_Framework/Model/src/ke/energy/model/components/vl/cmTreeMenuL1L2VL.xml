@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="cmTreeMenuL1L2VL"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ke.energy.model.components.vl.cmTreeMenuL1L2VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="NodeIdCmTreeMenuLevel1VO"
+    Cardinality="1"
+    Source="true"
+    Owner="ke.energy.model.components.vo.cm.cmTreeMenuLevel1VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="cmTreeMenuLevel1VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ke.energy.model.components.vo.cm.cmTreeMenuLevel1VO.NodeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="cmTreeMenuLevel2VO"
+    Cardinality="-1"
+    Owner="ke.energy.model.components.vo.cm.cmTreeMenuLevel2VO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="cmTreeMenuLevel2VO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ke.energy.model.components.vo.cm.cmTreeMenuLevel2VO.ParentNodeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ke.energy.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

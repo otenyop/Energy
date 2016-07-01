@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="cmTreeMenuLevel8VO"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="ke.energy.common.baseclasses.ViewRowImpl"
+  ComponentClass="ke.energy.common.baseclasses.ViewObjectImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ke.energy.model.components.vo.cm.cmTreeMenuLevel8VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT node_id,parent_node_id,child_label,line_level,type,taskflow_url 
+FROM (
+  SELECT node_id, menu_id parent_node_id,label child_label,level line_level,type,taskflow_url
+     FROM cm_tree_menu
+  START WITH menu_id IS NULL
+  CONNECT BY PRIOR node_id = menu_id)
+WHERE line_level = 8]]></SQLQuery>
+  <ViewAttribute
+    Name="NodeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Long"
+    ColumnType="LONGINT"
+    AliasName="NODE_ID"
+    Expression="NODE_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="ParentNodeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Scale="0"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    AliasName="PARENT_NODE_ID"
+    Expression="PARENT_NODE_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="ChildLabel"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CHILD_LABEL"
+    Expression="CHILD_LABEL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LineLevel"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="LINE_LEVEL"
+    Expression="LINE_LEVEL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Type"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TYPE"
+    Expression="TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TaskflowUrl"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TASKFLOW_URL"
+    Expression="TASKFLOW_URL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NodeId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="cmTreeMenuLevel9VO"
+    ViewLink="ke.energy.model.components.vl.cmTreeMenuL8L9VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ke.energy.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

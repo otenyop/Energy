@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="ke.energy.view.databindings" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/TestingPG.jsf" usageId="ke_energy_view_TestingPGPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrenciesTableSearch.jsff" usageId="ke_energy_view_cmCurrenciesTableSearchPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrenciesForm.jsff" usageId="ke_energy_view_cmCurrenciesFormPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@createInsert"
+          usageId="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_createInsertPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@Commit"
+          usageId="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_CommitPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@Rollback"
+          usageId="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RollbackPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@RemoveRowWithKey"
+          usageId="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RemoveRowWithKeyPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@SaveCommit"
+          usageId="ke_energy_view_databindings_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_SaveCommitPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/navigation/navigationTreeView.jsff" usageId="ke_energy_view_databindings_navigationTreeViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="ke_energy_view_TestingPGPageDef" path="ke.energy.view.testing.TestingPGPageDef"/>
+    <page id="ke_energy_view_cmCurrenciesTableSearchPageDef"
+          path="ke.energy.view.cm.currencies.cmCurrenciesTableSearchPageDef"/>
+    <page id="ke_energy_view_cmCurrenciesFormPageDef" path="ke.energy.view.cm.currencies.cmCurrenciesFormPageDef"/>
+    <page id="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_createInsertPageDef"
+          path="ke.energy.view.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_createInsertPageDef"/>
+    <page id="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_CommitPageDef"
+          path="ke.energy.view.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_CommitPageDef"/>
+    <page id="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RollbackPageDef"
+          path="ke.energy.view.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RollbackPageDef"/>
+    <page id="ke_energy_view_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RemoveRowWithKeyPageDef"
+          path="ke.energy.view.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_RemoveRowWithKeyPageDef"/>
+    <page id="ke_energy_view_databindings_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_SaveCommitPageDef"
+          path="ke.energy.view.taskflow.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_SaveCommitPageDef"/>
+    <page id="ke_energy_view_databindings_navigationTreeViewPageDef"
+          path="ke.energy.view.pageDefs.navigationTreeViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="ke.energy.model.components.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Currencies" id="ph1">
+      <af:query id="qryId1" headerText="Smart Search" disclosed="true"
+                value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:button text="Create Currency" id="b1" action="createObject"
+               disabled="#{!backingBeanScope.CmCurrenciesAuthorization.createAllowed}" />
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:table value="#{bindings.cmCurrenciesVO1.collectionModel}" var="row" rows="#{bindings.cmCurrenciesVO1.rangeSize}"
+              emptyText="#{bindings.cmCurrenciesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.cmCurrenciesVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.cmCurrenciesVO1.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.cmCurrenciesVO1.rangeSize}" id="resId1" scrollPolicy="page" varStatus="vs"
+              partialTriggers="l1">
+      <af:column id="c1" align="center" minimumWidth="12">
+        <af:outputText value="#{vs.index+1}" id="ot10"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.CurrencyCode.label}" id="resId1c1" sortable="true">
+        <af:link text="#{row.CurrencyCode}" id="l1" action="editViewForm"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.Name.label}" id="resId1c2" sortable="true">
+        <af:outputText value="#{row.Name}" shortDesc="#{bindings.cmCurrenciesVO1.hints.Name.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.Description.label}" id="resId1c3">
+        <af:outputText value="#{row.Description}" shortDesc="#{bindings.cmCurrenciesVO1.hints.Description.tooltip}"
+                       id="ot3"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.Precision.label}" id="resId1c4" align="right">
+        <af:outputText value="#{row.Precision}" shortDesc="#{bindings.cmCurrenciesVO1.hints.Precision.tooltip}"
+                       id="ot4">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.cmCurrenciesVO1.hints.Precision.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.ExtendedPrecision.label}" id="resId1c5" align="right">
+        <af:outputText value="#{row.ExtendedPrecision}"
+                       shortDesc="#{bindings.cmCurrenciesVO1.hints.ExtendedPrecision.tooltip}" id="ot5">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.cmCurrenciesVO1.hints.ExtendedPrecision.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.EnabledFlag.label}" id="resId1c6">
+        <af:outputText value="#{row.EnabledFlag}" shortDesc="#{bindings.cmCurrenciesVO1.hints.EnabledFlag.tooltip}"
+                       id="ot6"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.Symbol.label}" id="resId1c7">
+        <af:outputText value="#{row.Symbol}" shortDesc="#{bindings.cmCurrenciesVO1.hints.Symbol.tooltip}" id="ot7"/>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.StartDateActive.label}" id="resId1c8">
+        <af:outputText value="#{row.StartDateActive}"
+                       shortDesc="#{bindings.cmCurrenciesVO1.hints.StartDateActive.tooltip}" id="ot8">
+          <af:convertDateTime pattern="#{bindings.cmCurrenciesVO1.hints.StartDateActive.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column headerText="#{bindings.cmCurrenciesVO1.hints.EndDateActive.label}" id="resId1c9">
+        <af:outputText value="#{row.EndDateActive}" shortDesc="#{bindings.cmCurrenciesVO1.hints.EndDateActive.tooltip}"
+                       id="ot9">
+          <af:convertDateTime pattern="#{bindings.cmCurrenciesVO1.hints.EndDateActive.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</ui:composition>

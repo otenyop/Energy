@@ -43,7 +43,32 @@ CREATE TABLE CM_CURRENCIES
 	(
 	  NAME 
 	)
-	ENABLE;   
+	ENABLE;
+    
+    CREATE TABLE CM_TREE_MENU
+    (
+      NODE_ID               NUMBER(15)              NOT NULL,
+      MENU_ID               NUMBER(15)                      ,
+      LABEL                 VARCHAR2(40)            NOT NULL,
+      TASKFLOW_URL          VARCHAR2(200)                   ,
+      TYPE                  VARCHAR2(10)            NOT NULL,
+      CONSTRAINT NODE_ID_PK PRIMARY KEY
+        (
+          NODE_ID
+        )
+        ENABLE
+    );
+    
+    ALTER TABLE CM_TREE_MENU
+	ADD CONSTRAINT CM_TREE_MENU_ID_FK FOREIGN KEY
+	(
+	  MENU_ID
+	)
+	REFERENCES CM_TREE_MENU
+	(
+	  NODE_ID
+	)
+	ENABLE;            
 	
    CREATE TABLE CM_USERS 
    (
@@ -52,6 +77,7 @@ CREATE TABLE CM_CURRENCIES
 	USER_PASSWORD				VARCHAR2(100)				NOT NULL,
 	LAST_NAME					VARCHAR2(150)				NOT NULL,
 	FIRST_NAME					VARCHAR2(150)				NOT NULL,
+    MENU_ID                     NUMBER(15)                          ,
 	DESCRIPTION 				VARCHAR2(240)						,
 	START_DATE_ACTIVE 			DATE								, 
 	END_DATE_ACTIVE 			DATE								,	
@@ -72,7 +98,19 @@ CREATE TABLE CM_CURRENCIES
 	(
 	  USER_NAME
 	)
-	ENABLE;  	
+	ENABLE;
+    
+    ALTER TABLE CM_USERS
+	ADD CONSTRAINT CM_USERS_MENU_ID_FK  FOREIGN KEY
+	(
+	  MENU_ID
+	)
+	REFERENCES CM_TREE_MENU
+	(
+	  NODE_ID
+	)
+	ENABLE;   
+    
    
   CREATE TABLE CM_BUSINESS_GROUPS
    (	

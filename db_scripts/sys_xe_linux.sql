@@ -1,0 +1,1 @@
+@@build_energy_schema

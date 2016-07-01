@@ -1,6 +1,0 @@
-//Groovy Scripts for ke.energy.model.component.vo.cmCurrenciesVO
-
-package ke.energy.model.component.vo
-
-import oracle.jbo.script.annotation.CriteriaOperationExpression;
-

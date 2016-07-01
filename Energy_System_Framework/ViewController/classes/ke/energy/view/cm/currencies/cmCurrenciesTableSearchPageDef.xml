@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="cmCurrenciesTableSearchPageDef"
+                Package="ke.energy.view.cm.currencies" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="cmCurrenciesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="cmCurrenciesVO1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="cmCurrenciesVO1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="cmCurrenciesVO1Iterator" id="cmCurrenciesVO1">
+      <nodeDefinition DefName="ke.energy.model.components.vo.cm.cmCurrenciesVO" Name="cmCurrenciesVO10">
+        <AttrNames>
+          <Item Value="CurrencyCode"/>
+          <Item Value="Name"/>
+          <Item Value="Description"/>
+          <Item Value="Precision"/>
+          <Item Value="ExtendedPrecision"/>
+          <Item Value="EnabledFlag"/>
+          <Item Value="Symbol"/>
+          <Item Value="StartDateActive"/>
+          <Item Value="EndDateActive"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

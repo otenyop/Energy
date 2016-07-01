@@ -12,7 +12,8 @@ connect energy_adf/energy_adf
 @@create_functions
 @@create_packages
 @@create_triggers
-@@data/fnd_currencies
-@@data/fnd_period_status_types
+@@data/cm_currencies
+@@data/cm_period_status_types
 @@data/mtl_item_types
+@@data/cm_tree_menu
 commit;

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="cmCurrenciesFormPageDef"
+                Package="ke.energy.view.cm.currencies" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="cmCurrenciesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="cmCurrenciesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="CurrencyCode">
+      <AttrNames>
+        <Item Value="CurrencyCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Precision">
+      <AttrNames>
+        <Item Value="Precision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="ExtendedPrecision">
+      <AttrNames>
+        <Item Value="ExtendedPrecision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="EnabledFlag">
+      <AttrNames>
+        <Item Value="EnabledFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="Symbol">
+      <AttrNames>
+        <Item Value="Symbol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="StartDateActive">
+      <AttrNames>
+        <Item Value="StartDateActive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="cmCurrenciesVO1Iterator" id="EndDateActive">
+      <AttrNames>
+        <Item Value="EndDateActive"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

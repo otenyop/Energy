@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="TestingPGPageDef"
+                Package="ke.energy.view.testing" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="navigationBTF1"
+              taskFlowId="/WEB-INF/ke/energy/view/taskflow/cm/navigation/navigation-BTF.xml#navigation-BTF"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

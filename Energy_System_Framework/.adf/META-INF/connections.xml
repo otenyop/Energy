@@ -1,6 +1,6 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="energy_XE_Linux" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
-             credentialStoreKey="energy_XE_Linux" xmlns="">
+  <Reference name="energy_adf_xe_linux" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="energy_adf_xe_linux" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="oraDriverType">
@@ -20,7 +20,35 @@
         <Contents>energy_adf</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="sid">
-        <Contents>xe</Contents>
+        <Contents>XE</Contents>
+      </StringRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="sys_xe_linux" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="sys_xe_linux" xmlns="">
+    <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
+    <RefAddresses>
+      <StringRefAddr addrType="oraDriverType">
+        <Contents>thin</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>localhost</Contents>
+      </StringRefAddr>
+      <SecureRefAddr addrType="password"/>
+      <StringRefAddr addrType="role">
+        <Contents>SYSDBA</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="subtype">
+        <Contents>oraJDBC</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="port">
+        <Contents>1521</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="user">
+        <Contents>sys</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="sid">
+        <Contents>XE</Contents>
       </StringRefAddr>
     </RefAddresses>
   </Reference>
