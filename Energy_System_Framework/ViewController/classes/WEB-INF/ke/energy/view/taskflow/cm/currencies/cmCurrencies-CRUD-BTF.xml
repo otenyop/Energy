@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="cmCurrencies-CRUD-BTF">
+    <default-activity>cmCurrenciesTableView</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__34">
+      <managed-bean-name>CmCurrenciesAuthorization</managed-bean-name>
+      <managed-bean-class>ke.energy.view.cm.currencies.CmCurrenciesAuthorization</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__35">
+      <managed-bean-name>CmCurrenciesApprovals</managed-bean-name>
+      <managed-bean-class>ke.energy.view.cm.currencies.CmCurrenciesApprovals</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="cmCurrenciesTableView">
+      <page>/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrenciesTableSearch.jsff</page>
+    </view>
+    <method-call id="createInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>createInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="cmCurrenciesFormView">
+      <page>/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrenciesForm.jsff</page>
+    </view>
+    <method-call id="RemoveRowWithKey">
+      <method>#{bindings.removeRowWithKey.execute}</method>
+      <outcome>
+        <fixed-outcome>removeRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="InitiateApproval">
+      <method>#{backingBeanScope.CmCurrenciesApprovals.initiateSaveApproval}</method>
+      <outcome>
+        <fixed-outcome>openObjectTableView</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="isApprovalRequired">
+      <case id="__16">
+        <expression>#{backingBeanScope.CmCurrenciesAuthorization.saveApprovalRequired}</expression>
+        <outcome>Yes</outcome>
+      </case>
+      <case id="__17">
+        <expression>#{backingBeanScope.CmCurrenciesAuthorization.saveApprovalRequired}</expression>
+        <outcome>No</outcome>
+      </case>
+      <default-outcome>No</default-outcome>
+    </router>
+    <router id="isSaveApprovalRequired">
+      <case id="__12">
+        <expression>#{backingBeanScope.CmCurrenciesAuthorization.saveApprovalRequired}</expression>
+        <outcome>No</outcome>
+      </case>
+      <case id="__26">
+        <expression>#{backingBeanScope.CmCurrenciesAuthorization.saveApprovalRequired}</expression>
+        <outcome>Yes</outcome>
+      </case>
+      <default-outcome>No</default-outcome>
+    </router>
+    <method-call id="InitiateSaveApproval">
+      <method>#{backingBeanScope.CmCurrenciesApprovals.initiateSaveApproval}</method>
+      <outcome>
+        <fixed-outcome>backToFormView</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SaveCommit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>backToFormView</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>cmCurrenciesTableView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>createObject</from-outcome>
+        <to-activity-id>createInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>removeRowWithKey</from-outcome>
+        <to-activity-id>RemoveRowWithKey</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>editViewForm</from-outcome>
+        <to-activity-id>cmCurrenciesFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>createInsert</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>createInsert</from-outcome>
+        <to-activity-id>cmCurrenciesFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>cmCurrenciesFormView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>saveAndExit</from-outcome>
+        <to-activity-id>isApprovalRequired</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>createInsertFromFormView</from-outcome>
+        <to-activity-id>createInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>save</from-outcome>
+        <to-activity-id>isSaveApprovalRequired</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>cmCurrenciesTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>isApprovalRequired</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>Yes</from-outcome>
+        <to-activity-id>InitiateApproval</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>No</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>InitiateApproval</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>openObjectTableView</from-outcome>
+        <to-activity-id>cmCurrenciesTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>Commit</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>Commit</from-outcome>
+        <to-activity-id>cmCurrenciesTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id>RemoveRowWithKey</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome>removeRowWithKey</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>isSaveApprovalRequired</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome>Yes</from-outcome>
+        <to-activity-id>InitiateSaveApproval</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>No</from-outcome>
+        <to-activity-id>SaveCommit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id>InitiateSaveApproval</from-activity-id>
+      <control-flow-case id="__30">
+        <from-outcome>backToFormView</from-outcome>
+        <to-activity-id>cmCurrenciesFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__32">
+      <from-activity-id>SaveCommit</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>backToFormView</from-outcome>
+        <to-activity-id>cmCurrenciesFormView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

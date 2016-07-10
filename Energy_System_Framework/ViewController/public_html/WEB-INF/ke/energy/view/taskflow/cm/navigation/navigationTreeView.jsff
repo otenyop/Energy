@@ -2,15 +2,14 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:treeTable value="#{bindings.cmTreeMenuLevel2VO1.treeModel}" var="node"
-                selectionListener="#{bindings.cmTreeMenuLevel2VO1.treeModel.makeCurrent}" rowSelection="single"
+                selectionListener="#{backingBeanScope.NavigationTreeMenuBean.onTreeSelect}" rowSelection="single"
                 id="tt1">
     <f:facet name="nodeStamp">
       <af:column id="c1" width="300" >
         <af:link text="#{node}"
                  id="cil4" inlineStyle="height:16px; width:17px;" disabled="false"
-                 icon="#{resource['images:iconFolder_open.png']}"/>
+                 />
       </af:column>
     </f:facet>
-  
   </af:treeTable>
 </ui:composition>

@@ -5,6 +5,6 @@
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:region value="#{bindings.navigationBTF1.regionModel}" id="r1"/>
-        </af:form>
+        </af:form>   
     </af:document>
 </f:view>
