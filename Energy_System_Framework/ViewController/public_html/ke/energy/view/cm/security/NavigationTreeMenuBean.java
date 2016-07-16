@@ -1,5 +1,6 @@
 package ke.energy.view.cm.security;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.el.ELContext;
@@ -10,12 +11,15 @@ import javax.faces.context.FacesContext;
 
 import java.util.Iterator;  
 import oracle.adf.view.rich.component.rich.data.RichTreeTable;
+import oracle.adf.view.rich.context.AdfFacesContext;
+
 import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierBinding;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 import org.apache.myfaces.trinidad.event.SelectionEvent;
 import org.apache.myfaces.trinidad.model.CollectionModel;
 import org.apache.myfaces.trinidad.model.RowKeySet;
+import org.apache.myfaces.trinidad.model.RowKeySetTreeImpl;
 import org.apache.myfaces.trinidad.model.TreeModel; 
 
 
@@ -46,40 +50,88 @@ public class NavigationTreeMenuBean {
 
           /* END PRESERVER DEFAULT ADF SELECT BEHAVIOR */
           RichTreeTable tree = (RichTreeTable)selectionEvent.getSource();
-          TreeModel model = (TreeModel)tree.getValue();   
+          
          
           //get selected nodes
           RowKeySet rowKeySet = selectionEvent.getAddedSet(); 
+
           Iterator rksIterator = rowKeySet.iterator(); 
           //for single select configurations,this only is called once 
           while (rksIterator.hasNext()) {
+              
+            //a key is a list object that contains the node path information 
+            //for the selected node  
             List key = (List)rksIterator.next();
+            
+            //determine the selected node. Note that the tree table binding is 
+            //an instance of JUCtrlHierBinding  
             JUCtrlHierBinding treeBinding = null;
+              
+              
+            //get access to the Tree Collection Model. The tree component 
+            //instance is accessed through its binding property reference 
+            //to this managed bean
             CollectionModel collectionModel = (CollectionModel)tree.getValue();
+              
+            //We can get the binding information without using EL in our Java, 
+            //which you always should try to do. Using EL in Java is good to 
+            //use, but only second best as a solution   
             treeBinding = (JUCtrlHierBinding)collectionModel.getWrappedData(); 
+              
+            //the row data is represented by the JUCtrlHierNodeBinding class at 
+            //runtime. We get the node value from the tree binding at runtime   
             JUCtrlHierNodeBinding nodeBinding = null;
             nodeBinding = treeBinding.findNodeByKeyPath(key);
             Row rw = nodeBinding.getRow();
-            //print first row attribute. Note that in a tree you have to 
-            //determine the node type if you want to select node attributes 
-            //by name and not index 
-            String rowType = rw.getStructureDef().getDefName();
+                
              
-            System.out.println("This is a: "+ rw.getAttribute("Type"));
+            // Get the type of Tree Entry for appropriate Action later 
+            String nodeType =  (String) rw.getAttribute("Type");
               
-              /*  if(rowType.equalsIgnoreCase("DepartmentsView")){
-                  System.out.println("This row is a department: " +  
-                                     rw.getAttribute("DepartmentId"));
-                }
-                else if(rowType.equalsIgnoreCase("EmployeesView")){
-                 System.out.println("This row is an employee: " + 
-                                     rw.getAttribute("EmployeeId"));
-                }     
-                else{
-                  System.out.println("Huh????");  
-                }
-            // ... do more useful stuff here      
-        */
+              if (nodeType.equalsIgnoreCase("menu")){
+                   System.out.println("This is a Menu "+ rw.getAttribute("ChildLabel"));
+                   
+                      List newKeys = new ArrayList();
+                      
+                    
+                        /*  if (nodeBinding.hasChildren()) { //Collapse the tree if it has Children already
+                                                            
+                          //      tree.getDisclosedRowKeys().clear();
+                          //      AdfFacesContext.getCurrentInstance().addPartialTarget(tree.getParent());
+                          //      AdfFacesContext.getCurrentInstance().addPartialTarget(tree);  
+                         //     
+                         //     }
+                        */
+                         // else { // Expand the tree node
+                              
+                              //Get node in a tree to disclose
+                              newKeys.add(nodeBinding.getKeyPath());
+                              
+                              //ready to disclose
+                              tree.getDisclosedRowKeys().addAll(newKeys);
+                            
+                              //Refresh the tree
+                              //AdfFacesContext.getCurrentInstance().addPartialTarget(tree.getParent());
+                              AdfFacesContext.getCurrentInstance().addPartialTarget(tree);  
+                              
+                          //}
+                  }
+              else if (nodeType.equalsIgnoreCase("item")){
+                   System.out.println("This is a Node Item with URL "+ rw.getAttribute("TaskflowUrl"));
+                  }
+              else {
+                    System.out.println("Found none !");
+                  }
     }
  }
 }
+
+
+// on Collapse nodes  
+
+//    public String onCollapse() {
+//        treeTable.getDisclosedRowKeys().clear();
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(treeTable);
+//        return null;
+//    }
+
