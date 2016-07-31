@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>EnergySkin-v1.desktop</id>
+    <family>EnergySkin-v1</family>
+    <extends>fusionFx-v3.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/EnergySkin-v1/EnergySkin-v1.css</style-sheet-name>
+    <bundle-name>ke.energy.view.skinBundle</bundle-name>
+  </skin>
+</skins>

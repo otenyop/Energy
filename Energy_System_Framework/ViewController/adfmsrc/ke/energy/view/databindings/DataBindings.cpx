@@ -21,6 +21,12 @@
     <page path="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF@SaveCommit"
           usageId="ke_energy_view_databindings_cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_SaveCommitPageDef"/>
     <page path="/WEB-INF/ke/energy/view/taskflow/cm/navigation/navigationTreeView.jsff" usageId="ke_energy_view_databindings_navigationTreeViewPageDef"/>
+    <page path="/WEB-INF/ke/energy/view/taskflow/cm/navigation/dynamicTabsPageFragment.jsff"
+          usageId="ke_energy_view_databindings_dynamicTabsPageFragmentPageDef"/>
+    <page path="ke/energy/view/cm/security/dynamicTabsPage.jsf"
+          usageId="ke_energy_view_databindings_dynamicTabsPagePageDef"/>
+    <page path="/ke/energy/view/cm/security/dynamicTabsPage.jsf"
+          usageId="ke_energy_view_databindings_dynamicTabsPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="ke_energy_view_TestingPGPageDef" path="ke.energy.view.testing.TestingPGPageDef"/>
@@ -39,6 +45,10 @@
           path="ke.energy.view.taskflow.cm.currencies.cmCurrencies_CRUD_BTF_cmCurrencies_CRUD_BTF_SaveCommitPageDef"/>
     <page id="ke_energy_view_databindings_navigationTreeViewPageDef"
           path="ke.energy.view.pageDefs.navigationTreeViewPageDef"/>
+    <page id="ke_energy_view_databindings_dynamicTabsPageFragmentPageDef"
+          path="ke.energy.view.taskflow.cm.navigation.dynamicTabsPageFragmentPageDef"/>
+    <page id="ke_energy_view_databindings_dynamicTabsPagePageDef"
+          path="ke.energy.view.cm.security.dynamicTabsPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="ke.energy.model.components.am"

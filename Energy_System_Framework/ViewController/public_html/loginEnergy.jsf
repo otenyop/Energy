@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="loginEnergy.jsf" id="d1">
+    <af:form id="f1">
+      <af:panelStretchLayout id="psl1"  startWidth="33%" endWidth="33%" topHeight="33%" bottomHeight="33%">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top">
+          <af:panelGroupLayout id="pgl3"/>
+        </f:facet>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+          <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+            <af:panelGridLayout id="pgl2">
+              <af:gridRow marginTop="5px" height="auto" id="gr1">
+                <af:gridCell marginStart="5px" width="50%" id="gc1" halign="end">
+                  <af:outputText value="UserName" id="ot1"/>
+                  <af:spacer width="20" height="10" id="s5"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="start">
+                  <af:inputText id="it1"/>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr2">
+                <af:gridCell marginStart="5px" width="50%" id="gc3" halign="end">
+                  <af:outputText value="Password" id="ot2"/>
+                  <af:spacer width="20" height="10" id="s6"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="start">
+                  <af:inputText id="it2"/>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr3">
+                <af:gridCell marginStart="5px" width="50%" id="gc5"/>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6">
+                  <af:spacer width="10" height="10" id="s1"/>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr4">
+                <af:gridCell marginStart="5px" width="50%" id="gc7"/>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc8">
+                  <af:spacer width="10" height="10" id="s2"/>
+                  <af:button text="Login" id="b1"
+                             action="validateLogin" partialSubmit="true"/>
+                  <af:spacer width="50" height="10" id="s3"/>
+                  <af:button text="Cancel" id="b2"/>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                <af:gridCell marginStart="5px" width="50%" id="gc9"/>
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc10">
+                  <af:spacer width="50" height="10" id="s4"/>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelStretchLayout>
+    </af:form>
+  </af:document>
+</f:view>

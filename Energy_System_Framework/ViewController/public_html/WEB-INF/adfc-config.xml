@@ -1,3 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="loginPage">
+    <page>/loginEnergy.jsf</page>
+  </view>
+  <router id="isUserAuthenticated">
+    <case id="__2">
+      <expression>false</expression>
+      <outcome>No</outcome>
+    </case>
+    <case id="__3">
+      <expression>true</expression>
+      <outcome>Yes</outcome>
+    </case>
+    <default-outcome>No</default-outcome>
+  </router>
+  <task-flow-call id="callDynamicTabsPage">
+    <task-flow-reference>
+      <document>/WEB-INF/ke/energy/view/taskflow/cm/navigation/dynamicTabs-BTF.xml</document>
+      <id>dynamicTabs-BTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__4">
+    <from-activity-id>isUserAuthenticated</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>Yes</from-outcome>
+      <to-activity-id>callDynamicTabsPage</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id>loginPage</from-activity-id>
+    <control-flow-case id="__7">
+      <from-outcome>validateLogin</from-outcome>
+      <to-activity-id>isUserAuthenticated</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>LoginEnergyBean</managed-bean-name>
+    <managed-bean-class>ke.energy.view.cm.security.LoginEnergy</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

@@ -1,6 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
    <task-flow-descriptor path="WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml" id="cmCurrencies-CRUD-BTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
-   <task-flow-descriptor path="WEB-INF/ke/energy/view/taskflow/cm/navigation/navigation-BTF.xml" id="navigation-BTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/ke/energy/view/taskflow/cm/navigation/dynamicTabs-BTF.xml" id="dynamicTabs-BTF" type="task-flow-definition" uses-page-fragments="false" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets"/>
+   <task-flow-descriptor path="WEB-INF/ke/energy/view/taskflow/cm/navigation/navigation-BTF.xml" id="navigation-BTF" type="task-flow-definition" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="facelets">
+      <input-parameter name="tabContext"/>
+   </task-flow-descriptor>
    <task-flow-descriptor path="WEB-INF/ke/energy/view/taskflow/templates/CRUD-BTF-Template.xml" id="CRUD-BTF-Template" type="task-flow-template" uses-page-fragments="true" library-internal="false" remote-invocable="false" train="false" critical="false" page-type="unspecified"/>
 </task-flow-registry>

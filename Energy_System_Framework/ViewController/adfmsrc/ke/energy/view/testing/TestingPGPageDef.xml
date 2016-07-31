@@ -4,8 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="navigationBTF1"
-              taskFlowId="/WEB-INF/ke/energy/view/taskflow/cm/navigation/navigation-BTF.xml#navigation-BTF"
+    <taskFlow id="cmCurrenciesCRUDBTF1"
+              taskFlowId="/WEB-INF/ke/energy/view/taskflow/cm/currencies/cmCurrencies-CRUD-BTF.xml#cmCurrencies-CRUD-BTF"
               activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>

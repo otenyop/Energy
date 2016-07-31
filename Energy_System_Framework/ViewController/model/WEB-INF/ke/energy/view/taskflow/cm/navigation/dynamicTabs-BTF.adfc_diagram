@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">dynamicTabsPage</property>
+      <property
+         name="x">222.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>dynamicTabsPage&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">303.53516</property>
+      <property
+         name="page">/ke/energy/view/cm/security/dynamicTabsPage.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>

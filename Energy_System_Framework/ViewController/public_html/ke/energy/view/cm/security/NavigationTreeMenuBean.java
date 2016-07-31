@@ -89,10 +89,11 @@ public class NavigationTreeMenuBean {
             String nodeType =  (String) rw.getAttribute("Type");
               
               if (nodeType.equalsIgnoreCase("menu")){
-                   System.out.println("This is a Menu "+ rw.getAttribute("ChildLabel"));
+                   System.out.println("This is a Menu : "+ rw.getAttribute("ChildLabel"));
                    
                       List newKeys = new ArrayList();
                       
+                       //nodeBinding.getKeyPath().isEmpty()
                     
                         /*  if (nodeBinding.hasChildren()) { //Collapse the tree if it has Children already
                                                             
@@ -108,6 +109,7 @@ public class NavigationTreeMenuBean {
                               newKeys.add(nodeBinding.getKeyPath());
                               
                               //ready to disclose
+                              tree.getDisclosedRowKeys().remove();
                               tree.getDisclosedRowKeys().addAll(newKeys);
                             
                               //Refresh the tree
